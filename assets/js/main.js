@@ -40,12 +40,14 @@ function mapPage() {
 	app = new Vue({
 		el: '#app',
 		data: {
-			visible: false
+			visible: false,
+			incident:null
 		}
 	});
 
 	function incidenceClick(info) {
 		app.visible = true;
+		app.incident = info;
 	}
 }
 
