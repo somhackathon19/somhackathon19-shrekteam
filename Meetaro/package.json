@@ -25,7 +25,6 @@
     "@angular/router": "~7.0.0",
     "body-parser": "^1.18.3",
     "core-js": "^2.5.4",
-    "express": "^4.16.4",
     "hammerjs": "^2.0.8",
     "mongoose": "^5.4.10",
     "rxjs": "~6.3.3",
