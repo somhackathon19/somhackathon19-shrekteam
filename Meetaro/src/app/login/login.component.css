@@ -1,0 +1,9 @@
+div {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  background-color: #007DAB;
+  color: white;
+}
