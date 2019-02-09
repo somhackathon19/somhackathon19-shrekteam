@@ -13,6 +13,6 @@ export class AppComponent {
   }
 
   logIn() {
-    this.router.navigate([`/main`]);
+    this.router.navigate(['/main']);
   }
 }
