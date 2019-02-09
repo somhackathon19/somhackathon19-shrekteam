@@ -28,6 +28,10 @@
     background-color: white;
 
     position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .close-button{
@@ -36,6 +40,10 @@
     right: 5px;
     color: rgb(125,125,125);
     cursor: pointer;
+}
+
+.mapModal p {
+    font-family: "Muli", Arial, Helvetica, sans-serif;
 }
 
 .img-card{

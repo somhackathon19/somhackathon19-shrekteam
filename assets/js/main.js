@@ -29,13 +29,9 @@ function mapPage() {
 				fillOpacity: 0.5,
 				weight: 0,
 				radius: 20
-			}).addTo(mymap).on("click", () => incidenceClick(el));
-	
-		});
-		
-	}
-
-	
+			}).addTo(mymap).on("click", () => incidenceClick(el));	
+		});		
+	}	
 
 	app = new Vue({
 		el: '#app',
