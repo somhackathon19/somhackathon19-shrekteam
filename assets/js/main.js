@@ -17,20 +17,25 @@ function mapPage() {
 		accessToken: 'pk.eyJ1IjoiOGJlbHRyYW4iLCJhIjoiY2pyd3N2MzNqMGV0MDQ0bHhhMXBqN2s5ZyJ9.uUIekotp1Ji_-eWAvEsTFw'
 	}).addTo(mymap);
 
-	getIncidencies();
+	getIncidencies(pintar);
 
-	totesIncidencies.forEach(function (el) {
-		var color = "#008000";
+	function pintar(){
+		totesIncidencies.incidents.forEach(function (el) {
+			var color = "purple";
+	
+			var circle = L.circle([el.latitude, el.longitude], {
+				color: color,
+				fillColor: color,
+				fillOpacity: 0.5,
+				weight: 0,
+				radius: 20
+			}).addTo(mymap).on("click", () => incidenceClick(el));
+	
+		});
+		
+	}
 
-		var circle = L.circle([el.lat, el.lng], {
-			color: color,
-			fillColor: color,
-			fillOpacity: 0.5,
-			weight: 0,
-			radius: 20
-		}).addTo(mymap).on("click", () => incidenceClick(el));
-
-	});
+	
 
 	app = new Vue({
 		el: '#app',
@@ -88,13 +93,12 @@ function validarPage() {
 	}
 }
 
-function getIncidencies() {
-	fetch('http://localhost:3000/api/incidents').then(response => {
-		return response.json();
-	}).then(data => {
-		// Work with JSON data here
+function getIncidencies(callback) {
+	$.get("http://localhost:3000/api/incidents", function(data){
+		console.log(data);
 		totesIncidencies = data;
-	})
+		callback();
+	  });
 }
 
 
