@@ -57,34 +57,41 @@ function validarPage() {
 
 	document.getElementById("denyUser").onclick = function () {
 		$.ajax({
-			url: "http://localhost:3000/api/users/"+user._id,
-			type: 'DELETE'
+			url: "http://localhost:3000/api/users/" + user._id,
+			type: 'DELETE',
+			success: function (data) {
+				getUserToValidate();
+			}
 		});
-
-		getUserToValidate();
 	}
 
 	document.getElementById("acceptUser").onclick = function () {
 		user.validated = true;
 		$.ajax({
-			url: 'http://localhost:3000/api/users',
+			url: 'http://localhost:3000/api/users/' + user._id,
 			type: 'PUT',
-			data: {user},
+			data: user,
 			success: function (data) {
-				alert('Load was performed.');
+				getUserToValidate();
 			}
 		});
 
-		getUserToValidate();
+		
 	}
 
 	function getUserToValidate() {
-		fetch('http://localhost:3000/api/users').then(response => {
+		fetch('http://localhost:3000/api/usersNotValidated').then(response => {
 			return response.json();
 		}).then(data => {
-			user = data[0];
+			console.log(data);
+			user = data.users[0];
+			//Quan han validat a tothom, posar un tick o algo
+			if (!user) {
+				document.getElementById("image1").src = "";
+			document.getElementById("image2").src = "";
+			};
 			document.getElementById("image1").src = user.dni;
-			document.getElementById("image1").src = user.foto;
+			document.getElementById("image2").src = user.photo;
 		});
 		
 		return user;
