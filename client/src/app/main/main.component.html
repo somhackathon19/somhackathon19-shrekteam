@@ -1,0 +1,46 @@
+<div style="height: 90vh;">
+  <div *ngIf="screen === 1" style="height: 90vh">
+    <div *ngIf="!loading" style="height: 90vh; z-index: 1;"
+         leaflet
+         [leafletOptions]="options" [leafletLayers]="layers" (leafletClick)="onClick($event)">
+    </div>
+    <button mat-fab (click)="afegirIncidencia()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div class="screen" *ngIf="screen === 2" style="height: 90vh">
+
+    <h1 class="mat-typography">Persones properes</h1>
+
+    <div *ngFor="let person of people" fxLayout="row">
+      <mat-icon>person</mat-icon>
+      <div fxLayout="column">
+        <h5>Nom</h5>
+        <p>dades</p>
+        <hr>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="screen"  *ngIf="screen === 3" style="height: 90vh">
+
+    <h1 class="mat-typography">Perfil</h1>
+    <mat-icon style="font-size: 100px">person</mat-icon>
+    <button mat-raised-button (click)="tancarSessio()">Tancar sessió</button>
+
+  </div>
+</div>
+
+<div fxLayout="row" id="nav-bar">
+  <button mat-button (click)="refreshMap()">
+    <mat-icon class="nav-var-icon">map</mat-icon>
+  </button>
+  <button mat-button (click)="setScreen(2)">
+    <mat-icon class="nav-var-icon">list</mat-icon>
+  </button>
+  <button mat-button (click)="setScreen(3)">
+    <mat-icon class="nav-var-icon">person</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,13 @@
+<div fxLayout="column">
+  <img width="300" alt="Logo Mataro" src="assets/images/LogoMataro.png">
+
+  <mat-form-field>
+    <input matInput type="text" placeholder="Correu electrònic" [(ngModel)]="username">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="password" placeholder="Contrasenya" [(ngModel)]="password">
+  </mat-form-field>
+
+  <button class="top-btn" mat-raised-button (click)="login()">Iniciar sessió</button>
+  <button class="down-btn" mat-raised-button (click)="signin()">Registrar-se</button>
+</div>

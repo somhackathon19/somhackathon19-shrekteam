@@ -1,0 +1,40 @@
+<div class="body">
+  <h1 class="mat-typography">Registre</h1>
+
+
+  <div class="form" *ngIf="step===1">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Correu electrònic" [(ngModel)]="email">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Contrasenya" [(ngModel)]="password">
+    </mat-form-field>
+  </div>
+
+  <div class="form" *ngIf="step === 2">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Nom" [(ngModel)]="nom">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Nom" [(ngModel)]="cognoms">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="date" placeholder="Nom" [(ngModel)]="data">
+    </mat-form-field>
+    <mat-radio-group [(ngModel)]="dona" fxLayout="column">
+      <mat-radio-button value="true">Dona</mat-radio-button>
+      <mat-radio-button value="false">Home</mat-radio-button>
+      <mat-radio-button value="false">Altres</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div *ngIf="step === 3">
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="dni" placeholder="Nº DNI">
+    </mat-form-field>
+  </div>
+  <div fxLayout="row">
+    <button mat-raised-button class="green" (click)="previousStep()">{{step > 1 ? 'Anterior' : 'Tornar'}}</button>
+    <button mat-raised-button class="green" (click)="nextStep()">{{step < 3 ? 'Següent' : 'Registrar-se'}}</button>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+#nav-bar {
+  justify-content: space-between;
+}
+
+.mat-button {
+  height: 10vh;
+  width: 34vw;
+  text-align: center;
+  border-radius: 0;
+}
+
+.nav-var-icon {
+  color: #713096;
+  font-size: 40px;
+  height: 40px;
+  width: 40px;
+}
+
+.mat-fab {
+  position: absolute;
+  right: 5vw;
+  bottom: 13vh;
+  z-index: 5;
+  color: white;
+  background-color: #713096;
+}
+
+.screen{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  flex-direction: column;
+}
+
+.screen h1{
+  font-size: 30px;
+}
+
+.screen mat-icon{
+  font-size: 100px;
+  height: 100px;
+  width: 100px;
+}
